@@ -15,10 +15,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreLabel.text = " "
         updateUI()
     }
     
