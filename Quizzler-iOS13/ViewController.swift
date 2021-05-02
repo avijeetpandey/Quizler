@@ -18,30 +18,44 @@ class ViewController: UIViewController {
     var index : Int = 0
     var progress : Float = 0.25
     
+    var score : Int = 0
+    
     let quiz = [
-        "Is whale a mammal ?",
-        "Was rome built in one day ?",
-        "Can chess be played with only one player ? ",
-        "Are tigers and cats related ? "
+        Question(text: "Is whale a mammal ? ", answer: "True"),
+        Question(text:"Was rome built in one day ?", answer: "False"),
+        Question(text: "Can chess be played with only one player ? ", answer: "False"),
+        Question(text: "Are tigers and cats related ? ", answer: "True")
     ]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        progressBar.progress = progress
-        questionLabel.text = quiz[index]
+        updateUI()
     }
-
+    
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
+        //update the score
+        updateScore(answer : sender.currentTitle!)
+        
         // increase the index and progress
         if(index < 3){
             index+=1
             progress+=0.25
-            questionLabel.text = quiz[index]
-            progressBar.progress = progress
+            updateUI()
         }else {
-            questionLabel.text = "Congrats! you completed the quiz"
+            questionLabel.text = "Your score is \(score)"
+        }
+    }
+    
+    func updateUI(){
+        progressBar.progress = progress
+        questionLabel.text = quiz[index].text
+    }
+    
+    func updateScore(answer : String){
+        if(answer == quiz[index].answer){
+            score+=1
         }
     }
     
