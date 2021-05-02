@@ -15,18 +15,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
     
+    var index : Int = 0
+    var progress : Float = 0.25
+    
+    let quiz = [
+        "Is whale a mammal ?",
+        "Was rome built in one day ?",
+        "Can chess be played with only one player ? ",
+        "Are tigers and cats related ? "
+    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = "Is whale a mammal ? "
+        progressBar.progress = progress
+        questionLabel.text = quiz[index]
     }
 
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        if(sender.currentTitle! == "True"){
-            print("Thats correct")
-        }else{
-            print("Oops! wrong answer")
+        // increase the index and progress
+        if(index < 3){
+            index+=1
+            progress+=0.25
+            questionLabel.text = quiz[index]
+            progressBar.progress = progress
+        }else {
+            questionLabel.text = "Congrats! you completed the quiz"
         }
     }
     
