@@ -10,13 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        questionLabel.text = "Is whale a mammal ? "
     }
 
-
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+        if(sender.currentTitle! == "True"){
+            print("Thats correct")
+        }else{
+            print("Oops! wrong answer")
+        }
+    }
+    
 }
 
