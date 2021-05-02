@@ -11,4 +11,4 @@ The app is made as a coursework , to demonstrate the implementation of the MVC a
 <img src="screenshots/three.png" alt="onboarding image" height="400" />
 <img src="screenshots/four.png" alt="four" height="400" />
 
-Made with ❤️  using **SWIFT88
+Made with ❤️  using **SWIFT**
