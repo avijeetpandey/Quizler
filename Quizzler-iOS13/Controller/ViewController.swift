@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text = " "
         updateUI()
     }
     
@@ -42,8 +41,12 @@ class ViewController: UIViewController {
     }
     
     @objc func updateUI(){
+        
         progressBar.progress = quizBrain.getProgress()
+        
         questionLabel.text = quizBrain.getQuestionText()
+        scoreLabel.text = "Score : \(quizBrain.getScore())"
+        
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
     }
